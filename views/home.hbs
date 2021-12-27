@@ -1,16 +1,62 @@
+
+
 <h1 align="center"> Component Inventory Management </h1>
 
+<div class="row">
+  <div class="col-6"><h1></h1></div>
+  <div class="col-6 d-flex justify-content-end"> 
+    <a href="/adduser" type="botton" class="btn btn-primary align-self-center">+ Add Component</a>
+  </div>
+
+
+
+</div>
 <div>
+
+  <h1>
+
+  </h1>
+</div>
+
+<div>
+
+<script type="text/javascript">  
+            function selects(){  
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=true;  
+                }  
+            }  
+            function deSelect(){  
+                var ele=document.getElementsByName('chk');  
+                for(var i=0; i<ele.length; i++){  
+                    if(ele[i].type=='checkbox')  
+                        ele[i].checked=false;  
+                      
+                }  
+            }             
+</script>  
+
+
+
 
 <table class="table table-bordered">
   <thead class="thead-dark  ">
     <tr>
-      <th scope="col">#</th>
+      <th scope="col" > 
+       
+          <input type="button" onclick='selects()' value="SelectAll" >
+      
+        
+      </th>
+      <th scope="col">ID</th>
       <th scope="col">FirstName</th>
       <th scope="col">LastName</th>
       <th scope="col">Email</th>
-      <th scope="col">Phone</th>
+      <th scope="col">CreatedAt</th>
       <th scope="col">Status</th>
+      
      
       <th scope="col" class="text-center">Action</th>
     </tr>
@@ -19,18 +65,25 @@
 
     {{#each rows}}
     <tr>
+      <th scope="row">
+        
+       
+       <input type="checkbox" name="chk" value="" >
+   
+        
+      </th>
       <th scope="row">{{this.id}}</th>
       <td>{{this.first_name}}</td>
       <td>{{this.last_name}}</td>
       <td>{{this.email}}</td>
-      <td>{{this.phone}}</td>
+      <td>{{this.createdAt}}</td>
       <td>{{this.status}}</td>
      
       <td class="text-center">
 
-        <a href='#' type="button" class="btn btn-success btn-small"><i  class="bi bi-eye"></i>View </a>
-        <a href='#' type="button" class="btn btn-primary btn-small"><i  class="bi bi-pencil"></i>Edit </a>
-        <a href='#' type="button" class="btn btn-danger btn-small"><i  class="bi bi-trash-fill"></i>Delete </a>
+        {{!-- <a href='#' type="button" class="btn btn-success btn-small"><i  class="bi bi-eye"></i>View </a> --}}
+        <a href="/" type="button" class="btn btn-primary btn-small"><i  class="bi bi-pencil"></i>Update</a>
+        <a href="/{{this.id}}" type="button" class="btn btn-danger btn-small"><i  class="bi bi-trash-fill"></i>Delete </a>
         
       </td>
     </tr>
