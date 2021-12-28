@@ -44,12 +44,12 @@
 <table class="table table-bordered">
   <thead class="thead-dark  ">
     <tr>
-      <th scope="col" > 
+      {{!-- <th scope="col" > 
        
           <input type="button" onclick='selects()' value="SelectAll" >
       
         
-      </th>
+      </th> --}}
       <th scope="col">ID</th>
       <th scope="col">FirstName</th>
       <th scope="col">LastName</th>
@@ -65,13 +65,13 @@
 
     {{#each rows}}
     <tr>
-      <th scope="row">
+      {{!-- <th scope="row">
         
        
        <input type="checkbox" name="chk" value="" >
    
         
-      </th>
+      </th> --}}
       <th scope="row">{{this.id}}</th>
       <td>{{this.first_name}}</td>
       <td>{{this.last_name}}</td>
@@ -82,8 +82,8 @@
       <td class="text-center">
 
         {{!-- <a href='#' type="button" class="btn btn-success btn-small"><i  class="bi bi-eye"></i>View </a> --}}
-        <a href="/" type="button" class="btn btn-primary btn-small"><i  class="bi bi-pencil"></i>Update</a>
-        <a href="/{{this.id}}" type="button" class="btn btn-danger btn-small"><i  class="bi bi-trash-fill"></i>Delete </a>
+        <a href="/update/{{this.id}}" type="button" class="btn btn-primary btn-small"><i  class="bi bi-pencil"></i>Update</a>
+        <a href="/delete/{{this.id}}" type="button" class="btn btn-danger btn-small"><i  class="bi bi-trash-fill"></i>Delete </a>
         
       </td>
     </tr>

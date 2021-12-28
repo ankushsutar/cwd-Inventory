@@ -89,20 +89,46 @@ exports.delete = (req, res) =>  {
 
 }
 
-
 exports.form = (req, res) =>  {
   res.render('add-user');
  
 }
 
-
+exports.update = (req, res) =>  {
+  res.render('update-user');
+ 
+}
 
 exports.dashboard = (req, res) =>  {
   res.render('dashboard');
  
  }
 
- exports.inspection = (req, res) =>  {
-  res.render('inspection');
+//  exports.inspection = (req, res) =>  {
+//   res.render('inspection');
  
- }
+//  }
+
+
+
+ exports.findbystatus = (req, res) => {
+  pool.getConnection((err,connection) => {
+ // if(err) throw err;
+console.log('connected as ID'+ connection.threadId);
+   connection.query('SELECT * FROM users WHERE status= "inactive"', (err, rows) => {
+     connection.release();
+        if(!err) {
+          res.render('inspection', { rows });
+        } else {
+            console.log(err);
+        }
+        // console.log('data from users table: \n', rows);
+     });
+});
+}
+
+
+exports.smt = (req, res) =>  {
+  res.render('smt-data');
+ 
+}
